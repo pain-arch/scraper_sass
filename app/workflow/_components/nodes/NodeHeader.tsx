@@ -1,8 +1,10 @@
 "use client";
 
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { TaskRegistry } from '@/lib/workflow/task/registry';
 import { TaskType } from '@/types/task';
+import { Coins, GripVerticalIcon } from 'lucide-react';
 import React from 'react'
 
 function NodeHeader({ taskType} : { taskType: TaskType }) {
@@ -16,7 +18,14 @@ function NodeHeader({ taskType} : { taskType: TaskType }) {
             {task.label}
         </p>
         <div className="flex gap-1 items-center">
-            {task.isEntryPoint && <Badge>Entry</Badge>}
+            {task.isEntryPoint && <Badge>Entry Point</Badge>}
+            <Badge className="gap-2 flex items-center text-xs">
+              <Coins size={16}/>
+              TODO
+            </Badge>
+            <Button variant={"ghost"} size={"icon"} className=" drag-handle cursor-grab">
+              <GripVerticalIcon size={20} />
+            </Button>
         </div>
       </div>
     </div>
